@@ -1,0 +1,37 @@
+semua_tim = list('ABCDEFGHIJKLMNOPQRSTUVWXYZ')  # langsung dari string
+vokal = {'A', 'E', 'I', 'O', 'U'}  # huruf vokal
+poin = {}  # inisialisasi dictionary kosong
+for tim in semua_tim:
+    poin[tim] = 0  # set nilai poin untuk setiap tim menjadi 0
+
+# Simulasi semua pertandingan
+for i in range(len(semua_tim)):
+    for j in range(i + 1, len(semua_tim)):
+        tim1 = semua_tim[i]
+        tim2 = semua_tim[j]
+        
+        if (tim1 in vokal and tim2 in vokal) or (tim1 not in vokal and tim2 not in vokal):
+            # keduanya vokal atau keduanya konsonan, tim lebih kecil menang
+            poin[tim1] += 3
+        else:
+            # beda jenis (vokal vs konsonan), seri
+            poin[tim1] += 1
+            poin[tim2] += 1
+
+# Menentukan tim dengan poin tertinggi menggunakan loop
+point_tertinggi = 0
+pemenang = '' #atau pemenang = semua_tim[0]
+
+for tim in semua_tim:
+    if poin[tim] > point_tertinggi:
+        point_tertinggi = poin[tim]
+        pemenang = tim
+    elif poin[tim] == point_tertinggi and tim < pemenang:
+        pemenang = tim
+
+# Cetak hasil
+print("Poin masing-masing tim:")
+for tim in semua_tim:
+    print(f"{tim}: {poin[tim]}")
+
+print(f"Tim yang memimpin klasemen: {pemenang} dengan {point_tertinggi} poin.")

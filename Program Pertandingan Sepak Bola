@@ -30,9 +30,18 @@ for tim in semua_tim:
         pemenang = tim
 
 # Cetak hasil
-print("Poin masing-masing tim:")
+print()
+print("="*50)
+print("{:^50}".format("KLASEMEN SEMENTARA"))
+print("="*50)
+print("{:<15} | {:>15}".format("Tim", "Poin"))
+print("-"*50)
 for tim in semua_tim:
-    print(f"{tim}: {poin[tim]}")
+    print("{:<15} | {:>15}".format(tim, poin[tim]))  # Menampilkan tanpa penanda
+print("="*50)
 print()
-print(f"Tim yang memimpin klasemen: {pemenang} dengan {point_tertinggi} poin.")
+print(f"Tim yang memimpin klasemen: {pemenang}")
+print(f"Dengan perolehan point sebesar: {point_tertinggi} poin")
+print(f"Selamat kepada tim {pemenang} dan tetap semangat untuk tim lainnya")
 print()
+print("="*50)
